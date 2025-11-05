@@ -12,6 +12,8 @@ from langgraph.graph import StateGraph
 from langgraph.runtime import Runtime
 from typing_extensions import TypedDict
 
+# from utils.tools import connectToNeo4j
+
 
 class Context(TypedDict):
     """Context parameters for the agent.
@@ -43,7 +45,6 @@ async def call_model(state: State, runtime: Runtime[Context]) -> Dict[str, Any]:
         "changeme": "output from call_model. "
         f"Configured with {(runtime.context or {}).get('my_configurable_param')}"
     }
-
 
 # Define the graph
 graph = (
