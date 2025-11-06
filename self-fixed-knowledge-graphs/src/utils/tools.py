@@ -61,14 +61,25 @@ driver = connectToNeo4j()
 # print(f"Query counters: {summary.counters}.")
 
 # To create a new relationship, linking it to two already existing node, use a combination of the Cypher clauses MATCH and CREATE
-records, summary, keys = driver.execute_query(
-    """
-    MATCH (alice:Person {name: $name})
-    CREATE (bob:Person {name: $friend})
-    CREATE (alice)-[:KNOWS]->(bob)
-    """,
-    name="Alice",
-    friend="Bob",
-    database_="neo4j"
-)
-print(f"Query counters: {summary.counters}.")
+# records, summary, keys = driver.execute_query(
+#     """
+#     MATCH (alice:Person {name: $name})
+#     CREATE (bob:Person {name: $friend})
+#     CREATE (alice)-[:KNOWS]->(bob)
+#     """,
+#     name="Alice",
+#     friend="Bob",
+#     database_="neo4j"
+# )
+# print(f"Query counters: {summary.counters}.")
+
+# Remove the Alice Node
+# records, summary, keys = driver.execute_query(
+#     """
+#     MATCH (p:Person {name: $name})
+#     DETACH DELETE p
+#     """,
+#     name="Bob",
+#     database_="neo4j"
+# )
+# print(f"Query counters: {summary.counters}.")
